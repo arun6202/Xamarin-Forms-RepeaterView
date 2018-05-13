@@ -6,7 +6,7 @@
     <ContentPage.BindingContext>
         <viewModels:RepeaterViewModel />
     </ContentPage.BindingContext>
-         <repeater:RepeaterView RepeatCount="10">
+         <repeater:RepeaterView x:Name="repeater"  RepeatCount= "6" >
             <repeater:RepeaterView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
