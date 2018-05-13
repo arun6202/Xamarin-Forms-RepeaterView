@@ -20,7 +20,7 @@ namespace Repeater.ViewModels
 			}
 		}
 
-		private int repeatCount = 15;
+		private int repeatCount = 1;
 
 
 

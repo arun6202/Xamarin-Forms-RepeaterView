@@ -11,7 +11,7 @@ namespace XamarinForms.Plugin.Repeater
             typeof(RepeaterView), 
             default(DataTemplate));
 
-        public static readonly BindableProperty ItemsSourceProperty = BindableProperty.Create(
+		public  static readonly BindableProperty ItemsSourceProperty = BindableProperty.Create(
             nameof(ItemsSource), 
             typeof(ICollection), 
             typeof(RepeaterView), 
