@@ -3,7 +3,7 @@ using Xamarin.Forms;
 
 namespace XamarinForms.Plugin.Repeater
 {
-    public class RepeaterView : StackLayout
+	public class RepeaterView : FlexLayout
     {
         public static readonly BindableProperty ItemTemplateProperty = BindableProperty.Create(
             nameof(ItemTemplate), 
@@ -21,8 +21,10 @@ namespace XamarinForms.Plugin.Repeater
         
         public RepeaterView()
         {
-            Spacing = 0;
-        }
+			Direction = FlexDirection.Column;
+            AlignContent = FlexAlignContent.Center;
+            JustifyContent = FlexJustify.Center;
+		}
 
         public ICollection ItemsSource
         {
