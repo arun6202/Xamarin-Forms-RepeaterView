@@ -6,8 +6,7 @@
     <ContentPage.BindingContext>
         <viewModels:RepeaterViewModel />
     </ContentPage.BindingContext>
-    <StackLayout>
-        <repeater:RepeaterView ItemsSource="{Binding RepeatItems}" >
+         <repeater:RepeaterView RepeatCount="10">
             <repeater:RepeaterView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -16,5 +15,4 @@
                 </DataTemplate>
             </repeater:RepeaterView.ItemTemplate>
         </repeater:RepeaterView>
-    </StackLayout>
-</ContentPage>
+ </ContentPage>
