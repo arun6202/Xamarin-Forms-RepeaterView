@@ -30,6 +30,9 @@ namespace Repeater.ViewModels
 			set
 			{
 				repeatCount = value;
+				RepeatItems.Clear();
+				InitRepeatItems();
+
 				OnPropertyChanged();
 			}
 		}
@@ -38,12 +41,16 @@ namespace Repeater.ViewModels
 		public RepeaterViewModel()
 		{
 			RepeatItems = new List<string>();
+			InitRepeatItems();
 
+		}
+
+		private void InitRepeatItems()
+		{
 			for (int i = 0; i < RepeatCount; i++)
 			{
 				RepeatItems.Add(i.ToString());
 			}
-
 		}
 
 		public event PropertyChangedEventHandler PropertyChanged;

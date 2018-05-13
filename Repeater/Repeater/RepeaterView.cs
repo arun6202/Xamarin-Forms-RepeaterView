@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using Repeater.ViewModels;
 using Xamarin.Forms;
 
 namespace XamarinForms.Plugin.Repeater
@@ -36,9 +37,12 @@ namespace XamarinForms.Plugin.Repeater
             BindingMode.OneWay,
 			propertyChanged: RepeatCountChanged);
 
-		private static void RepeatCountChanged(BindableObject bindable, object oldValue, object newValue)
+		private static  void RepeatCountChanged(BindableObject bindable, object oldValue, object newValue)
 		{
-			throw new NotImplementedException();
+
+			var repeater = new RepeaterViewModel { RepeatCount = (int)newValue };
+           //	ItemsChanged(bindable, null, repeater.RepeatItems);
+
 		}
 
 		public int RepeatCount
@@ -76,11 +80,10 @@ namespace XamarinForms.Plugin.Repeater
         
         private static void ItemsChanged(BindableObject bindable, object oldValue, object newValue)
         {
-            var control = bindable as RepeaterView;
 
-            if (control == null) return;
+			if (!(bindable is RepeaterView control)) return;
 
-            control.Children.Clear();
+			control.Children.Clear();
 
             var items = (ICollection) newValue;
 
@@ -88,7 +91,7 @@ namespace XamarinForms.Plugin.Repeater
 
             foreach (var item in items)
             {
-                control.Children.Add(control.ViewFor(item));
+                control.Children.Add(control.ViewFor(new object()));
             }
         }
     }
