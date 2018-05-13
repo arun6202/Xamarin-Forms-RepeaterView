@@ -1,11 +1,13 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using Xamarin.Forms;
 
 namespace XamarinForms.Plugin.Repeater
 {
 	public class RepeaterView : FlexLayout
     {
-        public static readonly BindableProperty ItemTemplateProperty = BindableProperty.Create(
+		private const int DefaultValue = 1;
+		public static readonly BindableProperty ItemTemplateProperty = BindableProperty.Create(
             nameof(ItemTemplate), 
             typeof(DataTemplate), 
             typeof(RepeaterView), 
@@ -26,6 +28,24 @@ namespace XamarinForms.Plugin.Repeater
             JustifyContent = FlexJustify.Center;
 		}
 
+		public static readonly BindableProperty RepeatCountProperty = BindableProperty.Create(
+            nameof(ItemsSource),
+            typeof(int),
+            typeof(RepeaterView),
+			DefaultValue,
+            BindingMode.OneWay,
+			propertyChanged: RepeatCountChanged);
+
+		private static void RepeatCountChanged(BindableObject bindable, object oldValue, object newValue)
+		{
+			throw new NotImplementedException();
+		}
+
+		public int RepeatCount
+        {
+			get => (int)GetValue(RepeatCountProperty);
+			set => SetValue(RepeatCountProperty, value);
+        }
         public ICollection ItemsSource
         {
             get => (ICollection) GetValue(ItemsSourceProperty);
