@@ -22,13 +22,7 @@ namespace Repeater.Views
 
 	    private void Student_Tapped(object sender, EventArgs e)
 	    {
-	        var view = sender as View;
-
-	        var student = view?.BindingContext as string;
-
-	        var vm = BindingContext as MainViewModel;
-
-            vm.SelectStudentCommand.Execute(student);
+	         
 	    }
 	}
 }
